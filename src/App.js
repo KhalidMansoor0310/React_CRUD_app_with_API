@@ -4,26 +4,31 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Register from './pages/Register';
+import Edit from './pages/Edit';
+import View from './pages/View';
 import { BrowserRouter } from 'react-router-dom';
+import Home from './components/Home';
+import Add from './components/Add';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/Register">
-            <Register />
-          </Route>
-          <Route exact path="/Dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/View/:id">
+          <View />
+        </Route>
+        
+        <Route exact path="/Add">
+          <Add />
+        </Route>
+        <Route exact path="/Edit/:id">
+          <Edit />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
